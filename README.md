@@ -111,6 +111,9 @@ Short Form    | Long Form     | Description
 -t            | --threads     | Number of threads to use for subbrute bruteforce
 -e            | --engines     | Specify a comma-separated list of search engines
 -o            | --output      | Save the results to text file
+-f            | --format      | Specify format to save (txt or csv), default is csv
+-F            | --fields      | For csv file, specify fields to save (subdomain,ip,ports), default is all
+-i            | --findip      | Find IP address of each subdomain, using socket.gethostbyname
 -h            | --help        | show the help message and exit
 
 ### Examples
@@ -123,9 +126,17 @@ Short Form    | Long Form     | Description
 
 ``python sublist3r.py -d example.com``
 
+* To enumerate subdomains of specific domain, and save the output **(most commonly use)**:
+
+``python sublist3r.py -d example.com -o out.csv -f csv``
+
 * To enumerate subdomains of specific domain and show only subdomains which have open ports 80 and 443 :
 
 ``python sublist3r.py -d example.com -p 80,443``
+
+* To enumerate subdomains of specific domain, show only subdomains which have open ports 80 and 443, check the ip, and output results to csv file :
+
+``python sublist3r.py -d example.com -p 80,443 -i -o out.csv -f csv``
 
 * To enumerate subdomains of specific domain and show the results in realtime:
 
